@@ -1,0 +1,95 @@
+---
+description: >
+  Scan the application for SAST Pipeline with Veracode.
+  This command calls the others, and should be used as the command for scanning.
+parameters:
+  vid:
+    type: env_var_name
+    default: VERACODE_API_ID
+    description: >
+      Name of env var containing your Veracode API ID.
+      Pass this as a raw string.
+      If omitted it's assumed the CLI has already been setup
+      with a valid token beforehand.
+  vkey:
+    type: env_var_name
+    default: VERACODE_API_KEY
+    description: >
+      Name of env var containing your Veracode API KEY.
+      Pass this as a raw string.
+      If omitted it's assumed the CLI has already been setup
+      with a valid token beforehand.
+  working-directory:
+    description: The directory out of which circleci will run commands
+    type: string
+    default: .
+  project-name:
+    type: string
+    default: "${CIRCLE_PROJECT_REPONAME}"
+    description: Name of the Veracode application profile.
+  policy-name:
+    description: Name of the custom policy to be applied to the scan
+    type: string
+    default: "PCI 3.2.1 v1"
+  fail-on-severity:
+    description: >-
+      Scan will fail on issues of the set severity. Must be a comma separated
+      string of any of the following values= ["Very High", "High", "Medium",
+      "Low", "Very Low"].
+    type: string
+    default: '"Very High, High"'
+  package:
+    description: >
+      Packaging required before static scanning.
+    type: boolean
+    default: true
+  file:
+    description: >
+      Filepath or folderpath of the files you want to upload to Veracode
+      for scanning.By default, the integration uploads all the subdirectories
+      and files of this filepath.Ensure you have prepared the files according
+      to the Veracode Packaging Requirements.
+    type: string
+    default: "${CIRCLE_PROJECT_REPONAME}.zip"
+  timeout:
+    description: >
+      The amount of time(in minutes) before reporting
+      an unsuccessful scan.
+    type: integer
+    default: 60
+  verbose:
+    description: Display verbose output to console
+    type: boolean
+    default: true
+steps:
+  - checkout:
+      path: ~/repo
+  - run:
+      name: "Package for upload to Veracode"
+      # command: zip -r upload.zip nodegoat
+      command: zip -r << parameters.file >>.zip
+  - run:
+      name: Download Policy
+      no_output_timeout: 1m
+      command: |
+          java -jar /opt/veracode/pipeline-scan.jar \
+          --policy_file << parameters.policy-name >> \
+          --request_policy << parameters.policy-name >> \
+          --veracode_api_id "<< parameters.vid >>"  \
+          --veracode_api_key "<< parameters.vkey >>"  \
+          --timeout << parameters.timeout >> \
+          --issue_details << parameters.verbose >> \
+          --summary_output true
+  - run:
+      name: Scan Project
+      no_output_timeout: 30m
+      command: |
+          java -jar /opt/veracode/pipeline-scan.jar \
+          --file << parameters.file >> \
+          --policy_file ~/repo/<< parameters.policy-name >>.json \
+          --veracode_api_id "<< parameters.vid >>" \
+          --veracode_api_key "<< parameters.vkey >>"  \
+          --project_name "<< parameters.project-name >>" \
+          --timeout << parameters.timeout >> \
+          --issue_details << parameters.verbose >> \
+          --summary_output true \

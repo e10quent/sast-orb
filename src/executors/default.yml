@@ -1,11 +1,14 @@
+---
 description: >
-  This is a sample executor using Docker and Node.
+  Select version of Veracode Image to use.  Any available tag from this list
+  can be used: https://hub.docker.com/r/veracode/api-wrapper-java/tags
 docker:
-  - image: 'cimg/node:<<parameters.tag>>'
+  # - image: circleci/openjdk:11.0.2-jdk
+  - image: 'veracode/api-wrapper-java:<<parameters.tag>>'
 parameters:
   tag:
-    default: lts
+    default: latest
     description: >
-      Pick a specific circleci/node image variant:
-      https://hub.docker.com/r/cimg/node/tags
+      Pick a specific veracode/api-wrapper-java image variant:
+      https://hub.docker.com/r/veracode/api-wrapper-java/tags
     type: string
