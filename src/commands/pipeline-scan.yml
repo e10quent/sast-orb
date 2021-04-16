@@ -62,12 +62,6 @@ parameters:
     type: boolean
     default: true
 steps:
-  - checkout:
-      path: ~/repo
-  - run:
-      name: "Package for upload to Veracode"
-      # command: zip -r upload.zip nodegoat
-      command: zip -r << parameters.file >>.zip
   - run:
       name: Download Policy
       no_output_timeout: 1m
