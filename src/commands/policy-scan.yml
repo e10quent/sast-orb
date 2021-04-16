@@ -74,20 +74,6 @@ parameters:
       to the Veracode Packaging Requirements.
 
 steps:
-  #  grab the Veracode agent
-  # - run:
-  #    name: "Get the Veracode agent"
-  #    command: |
-  #  wget https://repo1.maven.org/maven2/com/veracode/
-  # vosp/api/wrappers/vosp-api-wrappers-java/
-  # 21.2.7.4/vosp-api-wrappers-java-21.2.7.4.jar -O VeracodeJavaAPI.jar
-  # curl -s http://search.maven.org/solrsearch/select?q=g:
-  # "com.veracode.vosp.api.wrappers"
-  # select?q=g:"com.veracode.vosp.api.wrappers"+AND+a:"vosp-api-wrappers-java"
-  # |grep -Po 'latestVersion.:.\K[^"]*'
-  # chmod 755 VeracodeJavaAPI.jar
-  # upload for scanning
-  # env vars are used to pass login creds and set the scan name
   - run:
       name: "Upload to Veracode"
       no_output_timeout: 30m

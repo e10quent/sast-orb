@@ -58,6 +58,14 @@ parameters:
     description: >
       Business Criticality assigning default policy of the
       organization.
+  filepath:
+    type: string
+    default: "${CIRCLE_PROJECT_REPONAME}.zip"
+    description: >
+      Filepath or folderpath of the files you want to upload to Veracode
+      for scanning.By default, the integration uploads all the subdirectories
+      and files of this filepath.Ensure you have prepared the files according
+      to the Veracode Packaging Requirements.
   version:
     type: string
     default: "CircleCI - ${CIRCLE_SHA1:0:7} - $CIRCLE_BUILD_NUM"
