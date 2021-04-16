@@ -4,7 +4,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    sast-orb: orb-01scan/sast-orb@0.0.3
+    sast-orb: orb-01scan/sast-orb@0.0.4
 
   jobs:
     veracode-scan:

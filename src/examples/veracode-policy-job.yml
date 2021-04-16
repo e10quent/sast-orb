@@ -1,10 +1,10 @@
 ---
 description: >
-  Retrieve latest results for a given Checkmarx project and store a Json Vulnerability report as an artifact
+  Retrieve latest results for a given Veracode project and store a Json Vulnerability report as an artifact
 usage:
   version: 2.1
   orbs:
-    sast-orb: orb-01scan/sast-orb@0.0.3
+    sast-orb: orb-01scan/sast-orb@0.0.4
 
   workflows:
     version: 2
