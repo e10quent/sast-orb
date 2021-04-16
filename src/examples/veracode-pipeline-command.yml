@@ -6,7 +6,6 @@ usage:
   orbs:
     sast-orb: orb-01scan/sast-orb@0.0.4
 
-
   jobs:
     veracode-scan:
       executor: sast-orb/pipeline
