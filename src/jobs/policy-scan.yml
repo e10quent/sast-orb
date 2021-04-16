@@ -97,6 +97,10 @@ executor:
 steps:
   - checkout:
       path: ~/repo
+  - run:
+      name: "Package for upload to Veracode"
+      # command: zip -r upload.zip nodegoat
+      command: zip -r ${CIRCLE_PROJECT_REPONAME}.zip
   - policy-scan:
       vid: << parameters.vid >>
       vkey: << parameters.vkey >>
