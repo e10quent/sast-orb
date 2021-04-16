@@ -1,6 +1,6 @@
 ---
 description: >
-  Retrieve latest results for a given Checkmarx project and store a Json Vulnerability report as an artifact
+  Retrieve latest results for a given Veracode project and store a Json Vulnerability report as an artifact
 usage:
   version: 2.1
   orbs:
