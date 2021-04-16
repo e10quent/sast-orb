@@ -63,9 +63,6 @@ parameters:
     default: "CircleCI - ${CIRCLE_SHA1:0:7} - $CIRCLE_BUILD_NUM"
     description: >
       Name or version of the build that you want to scan.
-  auto-scan:
-    type: boolean
-      Veracode Packaging Requirements.
   scantimeout:
     description: >
       Number of minutes to wait for the scan to complete and
