@@ -58,20 +58,19 @@ parameters:
     description: >
       Business Criticality assigning default policy of the
       organization.
+  filepath:
+    type: string
+    default: "${CIRCLE_PROJECT_REPONAME}.zip"
+    description: >
+      Filepath or folderpath of the files you want to upload to Veracode
+      for scanning.By default, the integration uploads all the subdirectories
+      and files of this filepath.Ensure you have prepared the files according
+      to the Veracode Packaging Requirements.
   version:
     type: string
     default: "CircleCI - ${CIRCLE_SHA1:0:7} - $CIRCLE_BUILD_NUM"
     description: >
       Name or version of the build that you want to scan.
-  filepath:
-    type: string
-    default: ""
-    description: >
-      Filepath or folderpath of the files you want to upload
-      to Veracode for scanning.By default, the integration
-      uploads all the subdirectories and files of this filepath.
-      Ensure you have prepared the files according to the
-      Veracode Packaging Requirements.
   scantimeout:
     description: >
       Number of minutes to wait for the scan to complete and
@@ -103,6 +102,10 @@ executor:
 steps:
   - checkout:
       path: ~/repo
+  - run:
+      name: "Package for upload to Veracode"
+      # command: zip -r upload.zip nodegoat
+      command: zip -r ${CIRCLE_PROJECT_REPONAME}.zip
   - policy-scan:
       vid: << parameters.vid >>
       vkey: << parameters.vkey >>
