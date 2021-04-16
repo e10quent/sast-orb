@@ -20,4 +20,4 @@ usage:
             filters:
               branches:
                 only:
-                - /feature-.*/
+                  - /feature-.*/
