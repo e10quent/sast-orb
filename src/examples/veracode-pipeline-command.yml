@@ -14,7 +14,7 @@ usage:
         - run:
             name: "Package for upload to Veracode"
             # command: zip -r upload.zip nodegoat
-            command: zip -r ${CIRCLE_PROJECT_REPONAME}.zip 
+            command: zip -r ${CIRCLE_PROJECT_REPONAME}.zip
         - sast-orb/pipeline-scan:
             vid: ${VERACODE_API_ID}
             vkey: ${VERACODE_API_KEY}
