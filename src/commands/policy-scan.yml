@@ -82,7 +82,7 @@ steps:
         -vid "<< parameters.vid >>" \
         -vkey "<< parameters.vkey >>" \
         -teams "<< parameters.teams >>" \
-        -action uploadandscan \
+        -action UploadAndScan \
         -appname "<< parameters.appname >>" \
         -createprofile "<< parameters.createprofile >>" \
         -version "<< parameters.version >>" \
