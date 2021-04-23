@@ -78,9 +78,9 @@ steps:
       name: "Upload to Veracode"
       no_output_timeout: 30m
       command: |
-        java -jar /opt/veracode/api-wrapper.jar
-        -vid "<< parameters.vid >>" \
-        -vkey "<< parameters.vkey >>" \
+        java -jar /opt/veracode/api-wrapper.jar \
+        -vid "${<< parameters.vid >>}" \
+        -vkey "${<< parameters.vkey >>}" \
         -teams "<< parameters.teams >>" \
         -action UploadAndScan \
         -appname "<< parameters.appname >>" \
