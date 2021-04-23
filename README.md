@@ -1,4 +1,4 @@
-# Orb Project Template
+# Veracode SAST ORB
 
 [![CircleCI Build Status](https://circleci.com/gh/e10quent/sast-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/e10quent/sast-orb) [![CircleCI Orb Version](https://badges.circleci.com/orbs/orb-01scan/sast-orb)](https://circleci.com/orbs/registry/orb/orb-01scan/sast-orb) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/e10quent/sast-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
