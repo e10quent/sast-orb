@@ -69,8 +69,8 @@ steps:
           java -jar /opt/veracode/pipeline-scan.jar \
           --policy_file << parameters.policy-name >> \
           --request_policy << parameters.policy-name >> \
-          --veracode_api_id "<< parameters.vid >>"  \
-          --veracode_api_key "<< parameters.vkey >>"  \
+          --veracode_api_id "${<< parameters.vid >>}"  \
+          --veracode_api_key "${<< parameters.vkey >>}" \
           --timeout << parameters.timeout >> \
           --issue_details << parameters.verbose >> \
           --summary_output true
@@ -81,8 +81,8 @@ steps:
           java -jar /opt/veracode/pipeline-scan.jar \
           --file << parameters.file >> \
           --policy_file ~/repo/<< parameters.policy-name >>.json \
-          --veracode_api_id "<< parameters.vid >>" \
-          --veracode_api_key "<< parameters.vkey >>"  \
+          --veracode_api_id "${<< parameters.vid >>}" \
+          --veracode_api_key "${<< parameters.vkey >>}" \
           --project_name "<< parameters.project-name >>" \
           --timeout << parameters.timeout >> \
           --issue_details << parameters.verbose >> \
