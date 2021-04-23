@@ -5,15 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
- - Current development changes [ to be moved to release ]
+ - Results commands (coming soon)
 
-## [1.0.0] - YYYY-MM-DD
-### Added
- - Initial Release
+## [0.0.8] - 2021-04-23
 ### Changed
- - Initial Release
+ - Initial Release with integration
 ### Removed
  - Initial Release
 
 
-[1.0.0]: GITHUB TAG URL
+[0.0.8]: GITHUB TAG URL
