@@ -4,7 +4,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    sast-orb: orb-01scan/sast-orb@0.0.8
+    sast-orb: orb-01scan/sast-orb@0.0.9
 
   jobs:
     veracode-scan:
@@ -21,7 +21,7 @@ usage:
             teams: "Development"
             appname: ${CIRCLE_PROJECT_REPONAME}
             createprofile: false
-            version: "CircleCI - ${CIRCLE_SHA1:0:7} - $CIRCLE_BUILD_NUM"
+            version: "CircleCI - ${CIRCLE_SHA1:0:7} - ${CIRCLE_BUILD_NUM}"
             filepath: "${CIRCLE_PROJECT_REPONAME}.zip"
 
   workflows:
