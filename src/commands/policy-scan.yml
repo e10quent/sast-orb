@@ -46,7 +46,7 @@ parameters:
     description: Business Criticality assigns default policy.
   version:
     type: string
-    default: "CircleCI - ${CIRCLE_SHA1:0:7} - $CIRCLE_BUILD_NU"
+    default: "CircleCI - ${CIRCLE_SHA1:0:7} - ${CIRCLE_BUILD_NUM}"
     description: >
       Name or version of the build that you want to scan.
   filepath:
