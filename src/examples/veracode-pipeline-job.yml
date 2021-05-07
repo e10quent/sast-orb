@@ -5,7 +5,7 @@ usage:
   version: 2.1
   orbs:
     sast-orb: orb-01scan/sast-orb@0.0.9
-
+    
   workflows:
     version: 2
     security-pipeline-scan:
